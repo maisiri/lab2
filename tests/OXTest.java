@@ -73,7 +73,7 @@ class OXTest {
     }
 
     @Test
-    void checkWinCol0() {
+    void checkWinCol0(){
         OX ox = new OX();
         ox.put(0,0);
         ox.put(0,1);
@@ -87,7 +87,7 @@ class OXTest {
     }
 
     @Test
-    void checkWinCol2() {
+    void checkWinCol2(){
         OX ox = new OX();
         ox.put(2,0);
         ox.put(2,1);
@@ -101,7 +101,7 @@ class OXTest {
     }
 
     @Test
-    void checkWinRow2() {
+    void checkWinRo2(){
         OX ox = new OX();
         ox.put(0,2);
         ox.put(1,2);
@@ -115,7 +115,7 @@ class OXTest {
     }
 
     @Test
-    void checkWinES() {
+    void checkWinEs(){
         OX ox = new OX();
         ox.put(0,0);
         ox.put(1,1);
@@ -123,10 +123,11 @@ class OXTest {
         assertTrue(ox.checkWin(0,0));
         assertTrue(ox.checkWin(1,1));
         assertTrue(ox.checkWin(2,2));
+
     }
 
     @Test
-    void checkWinSS() {
+    void checkWinSS(){
         OX ox = new OX();
         ox.put(2,0);
         ox.put(1,1);
@@ -134,10 +135,11 @@ class OXTest {
         assertTrue(ox.checkWin(2,0));
         assertTrue(ox.checkWin(1,1));
         assertTrue(ox.checkWin(0,2));
+
     }
 
     @Test
-    void reset() {
+    void reset(){
         OX ox = new OX();
         ox.put(2,0);
         ox.put(1,1);
@@ -149,10 +151,11 @@ class OXTest {
                 "2---\n", ox.getTableString());
         assertEquals("X", ox.getCurrentPlayer());
         assertEquals(0, ox.getTurnCount());
+
     }
 
     @Test
-    void getTurnCount() {
+    void getTurn(){
         OX ox = new OX();
         assertEquals(0,ox.getTurnCount());
         ox.put(0,0);
@@ -160,7 +163,7 @@ class OXTest {
     }
 
     @Test
-    void isDraw() {
+    void isDraw(){
         OX ox = new OX();
         ox.put(0,0);
         ox.put(0,1);
@@ -175,35 +178,37 @@ class OXTest {
         ox.put(2,0);
         ox.put(2,1);
         ox.put(2,2);
+
         assertTrue(ox.isDraw());
 
     }
-
     @Test
-    void getScoreX() {
+    void getScoreX(){
         OX ox = new OX();
-        assertEquals(0, ox.getScoreX());
+        assertEquals(0,ox.getScoreX());
         ox.put(0,0);
         ox.put(0,1);
         ox.put(0,2);
-        assertEquals(1, ox.getScoreX());
+        assertEquals(1,ox.getScoreX());
     }
 
     @Test
-    void getScoreO() {
+    void getScoreO(){
         OX ox = new OX();
         ox.switchPlayer();
-        assertEquals(0, ox.getScoreO());
+        assertEquals(0,ox.getScoreO());
         ox.put(0,0);
         ox.put(1,1);
         ox.put(2,2);
-        assertEquals(1, ox.getScoreO());
+        assertEquals(1,ox.getScoreO());
     }
 
     @Test
-    void getScoreDraw() {
+    void getScoreDraw(){
         OX ox = new OX();
-        assertEquals(0, ox.getScoreDraw());
+        ox.switchPlayer();
+        assertEquals(0,ox.getScoreDraw());
+
         ox.put(0,0);
         ox.put(0,1);
         ox.put(0,2);
@@ -218,8 +223,7 @@ class OXTest {
         ox.put(2,1);
         ox.put(2,2);
         assertTrue(ox.isDraw());
-        assertEquals(1, ox.getScoreDraw());
+        assertEquals(1,ox.getScoreDraw());
     }
-
 
 }
